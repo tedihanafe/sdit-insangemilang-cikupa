@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="./img/favicon.png" type="image/png" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./build/main.css">
+    <link rel="stylesheet" href="./build/page.css">
+    <link rel="stylesheet" href="./dist/css/gallery.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- Gallery CSS -->
+    <link type="text/css" rel="stylesheet" href="./dist/css/simple-lightbox.min.css" />
+
+    <!-- Javascript -->
+    <script src="./dist/js/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <!-- Gallery JS -->
+    <script src="./dist/js/simple-lightbox.min.js"></script>
+
+</head>
+<body class="bg-body">
+  <nav class="navbar">
+    <div class="branding lg:inline-flex hidden">
+      <a href="./" class="brand-link my-auto"><img src="./img/logo.png" alt="Logo SMA Negeri 1 Rawamerta" class="img-brand"></a>
+      <h2 class="brand my-auto text-white font-medium">SDIT Insan Gemilang Cikupa</h2>
+    </div>
+
+      <img src="./img/logo.png" alt="Logo SMA Negeri 1 Rawamerta" class="w-8 my-auto lg:hidden">
+      <h2 class="brand my-auto text-white font-medium lg:hidden">SDIT Insan Gemilang Cikupa</h2>
+
+    <div class="menuList">
+      <ul class="text-white menu-nav-lg">
+        <li class="nav-menu-lg"><a href="./index.html" class="nav-link">Beranda</a></li>
+        <li class="dropdown nav-menu-lg"><a href="javascript:void(0)" class="nav-link">Profil</a>
+          <ul class="dropdown-lg absolute invisible collapse">
+            <li class="dropdown-link-lg"><a href="./single-page.html" class="drop-link-lg">Sejarah</a></li>
+            <li class="dropdown-link-lg"><a href="./static-page.html" class="drop-link-lg">Visi dan Misi</a></li>
+            <li class="dropdown-link-lg"><a href="./single-page.html" class="drop-link-lg">Struktur Organisasi</a>
+              <ul class="drop-1-lg absolute left-full top-20 invisible collapse">
+                <li><a href="javascript:void(0)" class="drop-link-lg-1 drop-link-short-lg">Guru</a></li>
+                <li><a href="javascript:void(0)" class="drop-link-lg-1 drop-link-short-lg">Tata Usaha</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-menu-lg"><a href="./article.html" class="nav-link">Berita</a></li>
+        <li class="nav-menu-lg dropdown"><a href="javascript:void(0)" class="nav-link">Ekstrakurikuler</a>
+          <ul class="dropdown-lg absolute invisible collapse">
+            <li><a href="./category-page.html" class="dropdown-link-lg drop-link-short-lg">Osis</a></li>
+            <li><a href="./category-page.html" class="dropdown-link-lg drop-link-short-lg">MPK</a></li>
+            <li><a href="./category-page.html" class="dropdown-link-lg drop-link-short-lg">Pramuka</a></li>
+            <li><a href="./category-page.html" class="dropdown-link-lg drop-link-short-lg">Paskibra</a></li>
+            <li><a href="./category-page.html" class="dropdown-link-lg drop-link-short-lg">PMR</a></li>
+            <li><a href="./category-page.html" class="dropdown-link-lg drop-link-short-lg">Rohis</a></li>
+            <li><a href="./category-page.html" class="dropdown-link-lg drop-link-short-lg">Olahraga</a></li>
+            <li><a href="./category-page.html" class="dropdown-link-lg drop-link-short-lg">Kesenian</a></li>
+          </ul>
+        </li>
+        <li class="nav-menu-lg"><a href="./gallery.html" class="nav-link">Galeri</a></li>
+        <li class="nav-menu-lg"><a href="./contact-us.html" class="nav-link">Kontak Kami</a></li>
+      </ul>
+      <button class="toggleTheme ml-4">
+        <span class="toggle-indicator">
+          <i class="bi bi-moon-fill darkMode showDark"></i>
+          <i class="bi bi-sun-fill lightMode"></i>
+        </span>
+      </button>
+    </div>
+
+    <button class="cursor-pointer hbButton" data-target="navMenuMobile">
+      <div class="hb-menu bg-gray-400"></div>
+      <div class="hb-menu bg-gray-400"></div>
+      <div class="hb-menu bg-gray-400"></div>
+    </button>
+  </nav>
+
+  <div class="menuMobile navbarMenu h-full overflow-y-auto -left-full fixed" id="navMenuMobile">
+    <div class="w-full px-5 py-4">
+      <img src="./img/logo.png" alt="Logo SMAN 1 Rawamerta" class="w-12 mx-auto">
+      <h1 class="brand-mobile-title">SMAN 1 Rawamerta</h1>
+    </div>
+    <div class="mb-4">
+      <button class="toggleTheme mx-auto">
+        <span class="toggle-indicator">
+          <i class="bi bi-moon-fill darkMode showDark"></i>
+          <i class="bi bi-sun-fill lightMode"></i>
+        </span>
+      </button>
+    </div>
+    <div class="searchMobile flex justify-center">
+      <input type="text" placeholder="&nbsp; Ketik lalu tekan Enter&nbsp;&nbsp;" name="search" class="search-input w-0">
+      <button class="search-btn"><i class="bi bi-search search-icon"></i></button>
+    </div>
+    <div class="menuListMobile my-5">
+      <ul class="text-white menu-nav">
+        <li class="navMenu"><a href="./index.html" class="nav-link">Beranda</a></li>
+        <li class="dropdown navMenu z-10"><a href="javascript:void(0)" class="nav-link">Profil</a>
+        <ul class="dropdown-menu collapse invisible">
+          <li><a href="./single-page.html" class="dropdown-link">Sejarah</a></li>
+          <li><a href="./static-page.html" class="dropdown-link">Visi dan Misi</a></li>
+          <li><a href="javascript:void(0)" class="dropdown-link dropdown-1">Struktur Organisasi</a>
+            <ul class="dropdown-menu-1 collapse invisible">
+              <li><a href="javascript:void(0)" class="drop-link-mobile-1 drop-link-short-mobile">Guru</a></li>
+              <li><a href="javascript:void(0)" class="drop-link-mobile-1 drop-link-short-mobile">Tata Usaha</a></li>
+            </ul>
+          </li>
+        </ul>
+        </li>
+        <li class="navMenu"><a href="./article.html" class="nav-link">Berita</a></li>
+        <li class="navMenu dropdown"><a href="javascript:void(0)" class="nav-link">Ekstrakurikuler</a>
+          <ul class="dropdown-menu collapse invisible">
+            <li><a href="./category.html" class="dropdown-link">Osis</a></li>
+            <li><a href="./category.html" class="dropdown-link">MPK</a></li>
+            <li><a href="./category.html" class="dropdown-link">Pramuka</a></li>
+            <li><a href="./category.html" class="dropdown-link">Paskibra</a></li>
+            <li><a href="./category.html" class="dropdown-link">PMR</a></li>
+            <li><a href="./category.html" class="dropdown-link">Rohis</a></li>
+            <li><a href="./category.html" class="dropdown-link">Olahraga</a></li>
+            <li><a href="./category.html" class="dropdown-link">Keseninan</a></li>
+          </ul>
+        </li>
+        <li class="navMenu"><a href="./gallery.html" class="nav-link">Galeri</a></li>
+        <li class="navMenu"><a href="./contact-us.html" class="nav-link">Kontak Kami</a></li>
+      </ul>
+    </div>
+  </div>
+
+    <!-- Page Image Hero -->
+    <div class="big-hero gallery-hero-section">
+        <img src="./img/ardah/dualima.jpg" alt="Image-1" class="page-img w-full h-inherit object-center object-cover">
+        <div class="page-hero flex justify-center items-center h-inherit absolute top-0 w-full">
+            <div class="hero-section">
+                <h1 class="page-hero-title">
+                    Gallery
+                </h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <!-- Main -->
+        <div class="gallery-wrapper">
+            <div id="gallery" class="gallery-container gallery flex flex-wrap justify-center p-8">
+                <div class="album-thumbnail">
+                  <a href="./img/ardah/duadua.jpg">
+                    <img src="./img/ardah/duadua.jpg" alt="Images" class="img-gallery">
+                </a>
+                <h5>
+                  <a href="#" class="album-title">Album Title</a>
+                </h5>
+                </div>
+                <a href="./img/ardah/delapan.JPG">
+                    <img src="./img/ardah/delapan.JPG" alt="Images" class="img-gallery">
+                </a>
+                <a href="./img/ardah/duasembil.jpg">
+                    <img src="./img/ardah/duasembil.jpg" alt="Images" class="img-gallery">
+                </a>
+                <a href="./img/ardah/limabls.jpg">
+                    <img src="./img/ardah/limabls.jpg" alt="Images" class="img-gallery">
+                </a>
+                <a href="./img/ardah/tigabls.JPG">
+                    <img src="./img/ardah/tigabls.JPG" alt="Images" class="img-gallery">
+                </a>
+                <a href="./img/ardah/duatujuh.jpg">
+                    <img src="./img/ardah/duatujuh.jpg" alt="Images" class="img-gallery">
+                </a>
+                <a href="./img/ardah/tigasatu.jpg">
+                    <img src="./img/ardah/tigasatu.jpg" alt="Images" class="img-gallery">
+                </a>
+                <a href="./img/ardah/sepuluh.JPG">
+                    <img src="./img/ardah/sepuluh.JPG" alt="Images" class="img-gallery">
+                </a>
+                <a href="./img/ardah/dualima.jpg">
+                    <img src="./img/ardah/dualima.jpg" alt="Images" class="img-gallery">
+                </a>
+                <a href="./img/ardah/empat.JPG">
+                    <img src="./img/ardah/empat.JPG" alt="Images" class="img-gallery">
+                </a>
+                <a href="./img/ardah/tigalimia.jpg">
+                    <img src="./img/ardah/tigalimia.jpg" alt="Images" class="img-gallery">
+                </a>
+                <a href="./img/ardah/duatiga.jpg">
+                    <img src="./img/ardah/duatiga.jpg" alt="Images" class="img-gallery">
+                </a>
+            </div>
+            <div class="pagination-wrapper">
+              <div class="btn-pagination-container">
+                  <button class="btn btn-secondary btn-pagination btn-disabled"><i class="fa fa-chevron-left"></i></button>
+                  <button class="btn btn-secondary btn-pagination btn-page-active">1</button>
+                  <button class="btn btn-secondary btn-pagination">2</button>
+                  <button class="btn btn-secondary btn-pagination">3</button>
+                  <button class="btn btn-secondary btn-pagination">4</button>
+                  <button class="btn btn-secondary btn-pagination">5</button>
+                  <button class="btn btn-secondary btn-pagination"><i class="fa fa-chevron-right"></i></button>
+              </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- BAGIAN FOOTER -->
+    <footer class="footer">
+      <div class="footer-wrapper grid grid-cols-1 md:grid-cols-3 gap-4">
+    
+        <!-- Bagian 1 desktop -->
+        <div class="md:w-1/3 mx-20">
+          <div class="footer-brand flex justify-center">
+            <img src="./img/logo.png" alt="Logo SDIT INSAN GEMILANG" class="logo-footer w-2 h-2">
+            <h5 class="brand-footer" style="font-size: 18px;">SDIT INSAN GEMILANG</h5>
+          </div>
+          <br>
+    
+          <small class="text-center">
+            <center>
+              <p>Pondok Pesantren Anak-Anak Yang Baik Mencetak <br>Generasi Melenials Dengan Kaidah Al-Quran & Hadist.</p>
+            </center> <br>
+            <div class="flex justify-center">
+              <!-- Add inline CSS for the buttons -->
+              <span
+                style="background-color: #FFA500; color: #FFFFFF; padding: 0.25rem 0.75rem; margin: 0 4px; border-radius: 9999px; font-weight: bold; font-size: 11px;">SDIT</span>
+              <span
+                style="background-color: #FFA500; color: #FFFFFF; padding: 0.25rem 0.75rem; margin: 0 4px; border-radius: 9999px; font-weight: bold; font-size: 11px;">MTs</span>
+              <span
+                style="background-color: #FFA500; color: #FFFFFF; padding: 0.25rem 0.75rem; margin: 0 4px; border-radius: 9999px; font-weight: bold; font-size: 11px;">MA</span>
+              <span
+                style="background-color: #FFA500; color: #FFFFFF; padding: 0.25rem 0.75rem; margin: 0 4px; border-radius: 9999px; font-weight: bold; font-size: 11px;">RIBATH</span>
+            </div>
+            <center>
+              <p class="mt-3">PESANTREN ANAK-ANAK INSAN GEMILANG CIKUPA <br> berada di bawah naungan yayasan Ar-Rosyidiyah
+                dengan
+                <br>
+                SK Menkumham Nomor: AHU-xxx.xx.xxx. Tahun 2014. <br>Ar-Rosyidiyah diambil dari nama Ayah Anda KH. Bujairimi
+                Rosyidi <br>Yaitu KH. Abdur rosyid yang artinya orang yang mendapatkan keridhoan allah .
+              </p>
+            </center>
+          </small>
+    
+    
+    
+        </div>
+        <!-- Akhir bagian 1 desktop -->
+    
+        <br>
+    
+        <!-- Bagian 2 desktop -->
+        <div class="md:w-1/3 mx-20">
+          <center>
+            <h5 class="text-black font-bold pb-2 footer-heading mb-4">Social Media</h5>
+          </center>
+          <div class="mt-4 mb-3">
+            <div class="col-md-8 mx-auto">
+              <div class="flex justify-center">
+                <a href="#" class="text-white bg-light p-2 rounded-full shadow"
+                  style="width: 30px; height: 30px; margin:0 5px;">
+                  <center><img src="./img/logo wa.png" alt="whatsapp"></center>
+                </a>
+                <a href="#" class="text-white bg-light p-2 rounded-full shadow"
+                  style="width: 30px; height: 30px; margin:0 5px;">
+                  <center><img src="./img/logo ig.png" alt="instagram"></center>
+                </a>
+                <a href="#" class="text-white bg-light p-2 rounded-full shadow"
+                  style="width: 30px; height: 30px; margin:0 5px;">
+                  <center><img src="./img/logo youtube.png" alt="youtube"></center>
+                </a>
+                <!-- Tambahkan logo media sosial lainnya disini -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Akhir bagian 2 desktop -->
+    
+    
+    
+        <br>
+    
+        <!-- Bagian 3 desktop -->
+        <div class="md:w-1/3 mx-20">
+          <center>
+            <h5 class="text-black font-bold pb-2 footer-heading mb-4">Kontak Kami</h5>
+          </center>
+          <div class="row justify-center" style="display: block;">
+            <div class="col-md-1 col-1">
+              <i class="footer-contactus text-warning fas fa-calendar-day"></i>
+            </div>
+            <div class="col">
+              <center>
+                <i class="footer-contactus">Senin - Sabtu</i>
+              </center>
+            </div>
+          </div>
+          <div class="row justify-center" style="display: block;">
+            <div class="col-md-1 col-1">
+              <i class="footer-contactus text-warning fas fa-clock"></i>
+            </div>
+            <div class="col">
+              <center>
+                <i class="footer-contactus">07.00 - 20.00</i>
+              </center>
+              <!-- <i class="footer-contactus">08.00 - 17.00 (Jam Kerja)</i> -->
+            </div>
+          </div>
+          <div class="row justify-center" style="display: block;">
+            <!-- <div class="col-md-1 col-1">
+                      <i class="footer-contactus text-warning fas fa-phone"></i>
+                    </div> -->
+            <div class="col">
+              <center>
+                <i class="footer-contactus">0819-3287-7435</i> /
+                <i class="footer-contactus">0822-xxxx-xxxx</i>
+              </center>
+            </div>
+          </div>
+          <div class="row justify-center" style="display: block;">
+            <!-- <div class="col-md-1 col-1 d-flex items-center">
+                      <i class="footer-contactus text-warning fas fa-envelope"></i>
+                    </div> -->
+            <div class="col">
+              <center><a href="mailto:ponpesalfattah.com" class="footer-contactus">sditinsangemilang22@gmail.com</a>
+              </center>
+            </div>
+          </div>
+          <div class="row justify-center" style="display: block;">
+            <div class="col-md-1 col-1 d-flex items-center">
+              <i class="footer-contactus text-warning fas fa-map-marker-alt"></i>
+            </div>
+            <div class="col">
+              <center> <i class="footer-contactus">Jl. raya serang KM.18,5 Ds.bojong Rt.08 Rw.03 <br> Kec.cikupa
+                  Kab.tangerang</i></center>
+            </div>
+          </div>
+        </div>
+        <!-- Akhir bagian 3 desktop -->
+      </div>
+    
+      <hr class="footer-separator">
+    
+      <div class="bottom-footer text-center">
+        <div class="bottom-footer-content flex flex-wrap items-center justify-center">
+          <span class="block">&copy; <a href="https://SDITinsangemilang.github.io/SDIT"
+              class="backlink">SDIT-InsanGemilang</a>. AllRightReserved.</span>
+          <span class="block">Made with <i class="bi bi-suit-heart-fill text-red-500"></i> by-TediHanafi</span>
+        </div>
+      </div>
+    
+    
+    </footer>
+
+    <button type="submit" class="btn scrollTop"><i class="bi bi-arrow-up"></i></button>
+
+    <!-- Javascript -->
+    <script src="./dist/js/app.js"></script>
+    <script src="./dist/js/page.js"></script>
+    <script>
+      let lightbox = new SimpleLightbox(".gallery a", {
+        uniqueImages: false,
+      })
+    </script>
+</body>
+</html>
